@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    	
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>集群监控系统</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body>
+  		
+    <h3>集群监控系统</h3></br>
+  		
+  	<div class="panel panel-info">
+  	    <div class="panel-heading">
+            <h3 class="panel-title">Socket服务器</h3>
+        </div>	
+        
+        <div class="panel-body">
+        	<table class="table table-striped">
+        		<thead>
+                	<tr>
+                  		<th>IP地址</th>
+                  		<th>状态</th>
+                  		<th>操作</th>
+                	</tr>
+            	</thead>
+            	
+            	<tbody>
+            		<tr>
+            			<td>192.168.1.100</td>
+                  		<td>在线</td>
+                  		<td>
+                  			<button type="button" class="btn btn-xs btn-info add_server" data-toggle="modal" data-target="#ipModal"  data-source="add_server">设置IP</button>
+                  		</td>
+                  	</tr>
+            	</tbody>
+        	</table>
+        </div>
+  	</div>
+  	
+  	  <div class="panel panel-info">
+  		
+        <div class="panel-heading">
+            <h3 class="panel-title">集群信息</h3>
+        </div>
+        
+        <div class="panel-body">
+            <div class="table-responsive">
+        		<table class="table table-striped">
+        			<thead>
+                <tr>
+                  <th>IP地址</th>
+                  <th>连接状态</th>
+                  <th>内存使用</th>
+                  <th>进程数</th>
+                </tr>
+            	</thead>
+            		
+        			<tbody id = "clients_table">
+
+                	
+              </tbody>
+        		</table>
+        		
+        		<button type="button" class="btn btn-xs btn-success add_client" data-toggle="modal" data-target="#ipModal"  data-source="add_client">添加</button>
+        		
+    		  </div>
+		    </div>
+	    </div>
+  	
+  	<!-- 模态框（Modal） -->
+		<div class="modal fade" id="ipModal" tabindex="-1" role="dialog" aria-labelledby="ipModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+							&times;
+						</button>
+						
+						<h4 class="modal-title" id="myModalLabel">
+							请输入IP地址
+						</h4>
+					</div>
+					
+					<div class="modal-body">
+        		<input id="inputIP" class="form-control" placeholder="例:192.168.1.100" required autofocus>
+					</div>
+					
+					<div id="ipInvalidAlert" class="alert alert-warning">
+						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<strong>请输入正确ip地址!</strong>
+					</div>
+					
+					<div id="requestErrorAlert" class="alert alert-warning">
+						<a href="#" class="close" data-dismiss="alert">&times;</a>
+						<strong>请求失败!</strong>
+					</div>
+					
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							取消
+						</button>
+						<button type="button" id = "confirmIP" class="btn btn-primary">
+							确认
+						</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src = "js/modal.js"></script>
+    <script src = "js/clients.js"></script>
+    <script src = "js/ready.js"></script>
+    
+  </body>
+</html>

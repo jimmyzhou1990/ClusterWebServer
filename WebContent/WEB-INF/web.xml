@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Cluster Monitor</display-name>
+  
+  <welcome-file-list>
+    <welcome-file>/monitor.html</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+    <servlet-name>RegisterServlet</servlet-name>
+    <servlet-class>com.itheima.web.servlet.RegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisterServlet</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ActiveServlet</display-name>
+    <servlet-name>ActiveServlet</servlet-name>
+    <servlet-class>com.itheima.web.servlet.ActiveServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActiveServlet</servlet-name>
+    <url-pattern>/active</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>CheckUsernameServlet</display-name>
+    <servlet-name>CheckUsernameServlet</servlet-name>
+    <servlet-class>com.itheima.web.servlet.CheckUsernameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckUsernameServlet</servlet-name>
+    <url-pattern>/checkUsername</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>PrdocutServlet</display-name>
+    <servlet-name>PrdocutServlet</servlet-name>
+    <servlet-class>com.itheima.web.servlet.PrdocutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PrdocutServlet</servlet-name>
+    <url-pattern>/product</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ClientsManagerServlet</display-name>
+    <servlet-name>ClientsManagerServlet</servlet-name>
+    <servlet-class>main.servlets.web.ClientsManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ClientsManagerServlet</servlet-name>
+    <url-pattern>/clientsManagerServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>   
+    <display-name>SocketServlet</display-name> 
+    <servlet-name>SocketServlet</servlet-name>
+    <servlet-class>main.web.servlet.socket.SocketServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SocketServlet</servlet-name>
+    <url-pattern>/socketServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ServerManagerServlet</display-name>
+    <servlet-name>ServerManagerServlet</servlet-name>
+    <servlet-class>main.servlets.web.ServerManagerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServerManagerServlet</servlet-name>
+    <url-pattern>/serverManagerServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+</web-app>
