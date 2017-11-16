@@ -34,3 +34,42 @@ function sendCommand_AddClient(clientip) {
 		dataType:"json"
 	});	
 }
+
+function sendCommand_GetServerStatus(){
+	$.ajax({
+		url:"serverManagerServlet",
+		async:true,
+		type:"POST",
+		data:{"sscon":"???"},
+		
+		success:function(data){
+			GetServerSuccuss(data);
+		},
+		
+		error: function(data){
+			GetServerError(data);
+		},
+		
+		dataType:"json"
+	});
+}
+
+function sendCommand_GetClientsStatus(){
+	$.ajax({
+		url:"clientsManagerServlet",
+		async:true,
+		type:"POST",
+		data:{"get" : "all"},
+		
+		success:function(data){
+			GetClientsSuccuss(data);
+		},
+		
+		error: function(data){
+			GetClientsError(data);
+		},
+		
+		dataType:"json"
+	});
+}
+

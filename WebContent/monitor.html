@@ -32,10 +32,10 @@
                 	</tr>
             	</thead>
             	
-            	<tbody>
+            	<tbody id = "server_table">
             		<tr>
-            			<td>192.168.1.100</td>
-                  		<td>在线</td>
+            			<td></td>
+                  		<td></td>
                   		<td>
                   			<button type="button" class="btn btn-xs btn-info add_server" data-toggle="modal" data-target="#ipModal"  data-source="add_server">设置IP</button>
                   		</td>
@@ -66,7 +66,7 @@
         			<tbody id = "clients_table">
 
                 	
-              </tbody>
+                    </tbody>
         		</table>
         		
         		<button type="button" class="btn btn-xs btn-success add_client" data-toggle="modal" data-target="#ipModal"  data-source="add_client">添加</button>
@@ -120,10 +120,12 @@
     <script src="js/jquery-1.11.3.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/ajax.js"></script>
-    <script src = "js/modal.js"></script>
+    <script src="js/refresh_server.js"></script>
     <script src = "js/clients.js"></script>
-    <script src = "js/ready.js"></script>
-    
+    <script src = "js/refresh_clients.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/interval.js"></script>
+    <script src = "js/modal.js"></script>
+  
   </body>
 </html>

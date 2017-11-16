@@ -48,7 +48,9 @@ public class ClientsManagerServlet extends HttpServlet {
 			if (!subAdd.equals("null"))
 			{
 				SocketTransBuffer.insertNode("add sc " + subAdd);
+				response.getWriter().println("{\"add\" : \"ok\"}");
 			}
+			
 		}
 		catch (Exception e) {
 			// TODO: handle exception
