@@ -56,6 +56,21 @@ public class ClientsManagerServlet extends HttpServlet {
 			// TODO: handle exception
 		}
 		
+		//删除client    {remove : "192.168.1.105"}
+		try {
+			String subAdd = request.getParameter("remove");
+			
+			if (!subAdd.equals("null"))
+			{
+				SocketTransBuffer.insertNode("remove sc " + subAdd);
+				response.getWriter().println("{\"remove\" : \"ok\"}");
+			}
+			
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+		}		
+		
 		
 	}
 

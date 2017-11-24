@@ -5,48 +5,22 @@ clientsJson = [
 	{"ip":"192.168.1.4",  "connect":"offline",  "memory":"30%", "threads":"381"}
 ]
 
-
-function showClients(){
-	
-	//alert(clientsJson[0].ip);
-	
-	function addRow(){
-	
-	}
-	
-	function deleteRow(){
-		
-	}
-	
-	function show(json){
-        $.each(json, function(index, client) {
-        	var tr = null;
-        	$.each(client, function(attr, data) {
-        		//tr+='<td>'+client[attr]+'</td>';
-        		tr+='<td>'+data+'</td>';
-        	});
-            tr+='<td>'+ '<button type="button" class="btn btn-xs btn-danger">删除</button>' + '</td>'
-            $("#clients_table").append('<tr>'+tr+'</tr>');
-        });
-	};
-	
-	show(clientsJson);
-}
+selectButton = 
+'<div class="btn-group">'+
+'<button type="button" class="btn btn-primary btn-xs btn-info dropdown-toggle" data-toggle="dropdown">操作'+ 
+    '<span class="caret"></span>'+
+'</button>'+
+'<ul class="dropdown-menu" role="menu">'+
+   '<li><a href="#" class="select_delete_this">删除</a></li>'+
+   '<li><a href="#" class="select_shutdown_this">关机</a></li>'+
+'</ul>'+
+'</div>';
 
 function Clients(){
 	
 	this.currentNum = 0;
 	this.maxNum = 50;
-	this.buttonClass = "row_button";
 	
-	
-	this.add = function(){
-		
-	};
-	
-	this.remove = function(){
-		
-	};
 	
 	/* 建立50 行*/
 	this.showCreate = function(){
@@ -54,17 +28,44 @@ function Clients(){
         var tds;
        	for (var i=0; i<this.maxNum; i++){
        		tds = '';
-       		tds+='<td>'+''+'</td>'; 
-       		tds+='<td>'+''+'</td>';
-       		tds+='<td>'+''+'</td>';
-       		tds+='<td>'+''+'</td>';
-       		tds+='<td>'+ '<button type="button" class="btn btn-xs btn-danger '+ this.buttonClass + '">删除</button>' + '</td>'
+       		tds+='<td width="20%">'+''+'</td>'; 
+       		tds+='<td width="20%">'+''+'</td>';
+       		tds+='<td width="20%">'+''+'</td>';
+       		tds+='<td width="20%">'+''+'</td>';
+       		tds += '<td width="20%">'+selectButton+'</td>';
        		$("#clients_table").append('<tr>' + tds + '</tr>');
        		$("#clients_table tr:eq(" + i + ")").hide();
        	}
 	};
 	this.showCreate();
 	
+	
+	/* 删除 */
+	$("#clients_table").on("click", ".select_delete_this", function(){
+		//alert("remove this")
+		var callback_seccuss = function() {
+			alert("ok")
+		}
+		var callback_fail = function() {
+			alert("fail")
+		}
+		
+		var $this = $(this);
+		var $row = $(this).closest("tr"); //找到父行
+		
+		
+		var clientip = $row.children('td').eq(0).text();
+		var command = "remove";
+		
+		sendCommand_Client(clientip, command, callback_seccuss, callback_fail);
+		
+	});
+	
+	/* 关机 */
+	$("#clients_table").on("click", ".select_shutdown_this", function(){
+		//alert("shutdown this")
+		
+	});
 	
 	/* 刷新显示 */
 	this.showRefresh = function(json){
@@ -87,18 +88,6 @@ function Clients(){
 		
 		this.currentNum	= json.length;	
 	};
-	
-	/* 添加响应函数 */
-	$(".add_client").click(function(){
-		//alert("add");
-		
-	});
-	
-	/* 删除响应函数 */
-	$("."+this.buttonClass).click(function(){
-		//alert("delete");
-	});
-	
 	
 }
 

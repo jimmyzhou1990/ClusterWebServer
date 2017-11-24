@@ -17,24 +17,6 @@ function sendCommand_AddServer(serverip){
 	});
 }
 
-function sendCommand_AddClient(clientip) {
-	$.ajax({
-		url:"clientsManagerServlet",
-		async:true,
-		type:"POST",
-		data:{"add" : clientip},
-		success:function(data){
-			//alert("修改成功!");
-			$("#ipModal").modal('hide');
-		},
-		error:function(){
-			//alert("请求失败!");
-			$("#requestErrorAlert").show();
-		},
-		dataType:"json"
-	});	
-}
-
 function sendCommand_GetServerStatus(){
 	$.ajax({
 		url:"serverManagerServlet",
@@ -53,6 +35,44 @@ function sendCommand_GetServerStatus(){
 		dataType:"json"
 	});
 }
+
+function sendCommand_AddClient(clientip) {
+	$.ajax({
+		url:"clientsManagerServlet",
+		async:true,
+		type:"POST",
+		data:{"add" : clientip},
+		success:function(data){
+			//alert("修改成功!");
+			$("#ipModal").modal('hide');
+		},
+		error:function(){
+			//alert("请求失败!");
+			$("#requestErrorAlert").show();
+		},
+		dataType:"json"
+	});	
+}
+
+function sendCommand_Client(clientip, command, cb_seccuss, cb_fail){
+	$.ajax({
+		url:"clientsManagerServlet",
+		async:true,
+		type:"POST",
+		data:{"remove" : clientip},
+		success:function(data){
+			cb_seccuss();
+		},
+		error:function(){
+			cb_fail();
+		},
+		dataType:"json"
+	});	
+	
+}
+
+
+
 
 function sendCommand_GetClientsStatus(){
 	$.ajax({

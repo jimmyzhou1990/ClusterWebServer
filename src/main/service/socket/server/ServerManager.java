@@ -11,7 +11,7 @@ public class ServerManager {
 		Manager.setIp(ip);
 		Manager.setCon("offline");
 	}
-	
+	  
 	//设置状态
 	public static void setCon(String con) {
 		Manager.setCon(con);

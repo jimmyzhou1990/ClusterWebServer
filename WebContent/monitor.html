@@ -53,13 +53,14 @@
         
         <div class="panel-body">
             <div class="table-responsive">
-        		<table class="table table-striped">
+        		<table class="table table-striped table-condensed">
         			<thead>
                 <tr>
-                  <th>IP地址</th>
-                  <th>连接状态</th>
-                  <th>内存使用</th>
-                  <th>进程数</th>
+                  <th width="20%">IP地址</th>
+                  <th width="20%">连接状态</th>
+                  <th width="20%">内存使用</th>
+                  <th width="20%">进程数</th>
+                  <th width="20%">     </th>
                 </tr>
             	</thead>
             		
@@ -69,13 +70,14 @@
                     </tbody>
         		</table>
         		
+        		</br>
         		<button type="button" class="btn btn-xs btn-success add_client" data-toggle="modal" data-target="#ipModal"  data-source="add_client">添加</button>
         		
     		  </div>
 		    </div>
 	    </div>
   	
-  	<!-- 模态框（Modal） -->
+  	<!-- 模态框 IP输入（Modal） -->
 		<div class="modal fade" id="ipModal" tabindex="-1" role="dialog" aria-labelledby="ipModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -85,7 +87,7 @@
 							&times;
 						</button>
 						
-						<h4 class="modal-title" id="myModalLabel">
+						<h4 class="modal-title" id="ipModalLabel">
 							请输入IP地址
 						</h4>
 					</div>
@@ -115,7 +117,7 @@
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal -->
 		</div>
-		
+	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-1.11.3.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
