@@ -59,6 +59,7 @@ function Clients(){
 		
 		sendCommand_Client(clientip, command, callback_seccuss, callback_fail);
 		
+		
 	});
 	
 	/* 关机 */
